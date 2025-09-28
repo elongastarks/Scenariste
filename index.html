@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Elonga Stark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+
+    .header-portfolio {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header-portfolio img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0ff;
+    }
+
+    .header-portfolio h1 {
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+      color: #0ff;
+    }
+
+    .header-portfolio p.bio {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .contacts {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .oeuvres {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .oeuvre {
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #0ff;
+      padding: 20px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .oeuvre:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .oeuvre h2 {
+      margin: 0 0 10px;
+      color: #0ff;
+      font-size: 1.4rem;
+    }
+
+    .oeuvre .pitch {
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .oeuvre .btn {
+      background: #0ff;
+      color: #000;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .oeuvre .btn:hover {
+      background: #f0f;
+      color: #fff;
+    }
+
+    .oeuvre .synopsis {
+      display: none;
+      margin-top: 10px;
+      color: #eee;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .header-portfolio h1 {
+        font-size: 2rem;
+      }
+      .oeuvre h2 {
+        font-size: 1.2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-portfolio">
+      <img src="https://i.imgur.com/DNqZLqO.jpg" alt="Elonga Stark">
+      <h1>ELONGA STARK</h1>
+      <p class="bio">
+        Auteur, scénariste et artiste visuel. Passionné par la narration, je crée des histoires qui touchent, des personnages qui vivent et des univers qui restent en mémoire. CV à disposition pour collaborations et projets professionnels.
+      </p>
+      <div class="contacts">
+        📞 +243835175346 | 📧 elongastarks@gmail.com
+      </div>
+    </div>
+
+    <div class="oeuvres">
+      <div class="oeuvre">
+        <h2>Film A</h2>
+        <p class="pitch">Un long pitch captivant qui donne envie...</p>
+        <button class="btn" onclick="toggleSynopsis(this)">Voir plus</button>
+        <div class="synopsis">
+<p>Synopsis complet du Film A : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse hendrerit, nunc nec volutpat fringilla, lectus urna placerat lacus, vel egestas nisl lorem non justo.</p>
+        </div>
+      </div>
+
+      <div class="oeuvre">
+        <h2>Film B</h2>
+        <p class="pitch">Une intrigue mystérieuse autour de...</p>
+        <button class="btn" onclick="toggleSynopsis(this)">Voir plus</button>
+        <div class="synopsis">
+          <p>Synopsis complet du Film B : Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+      </div>
+
+      <div class="oeuvre">
+        <h2>Film C</h2>
+        <p class="pitch">Histoire émouvante sur...</p>
+        <button class="btn" onclick="toggleSynopsis(this)">Voir plus</button>
+        <div class="synopsis">
+          <p>Synopsis complet du Film C : Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+      </div>
+
+      <!-- Tu peux copier ce bloc pour ajouter plus de films -->
+    </div>
+
+    <footer>
+      © 2025 Elonga Stark — Tous droits réservés.
+    </footer>
+  </div>
+
+  <script>
+    function toggleSynopsis(button) {
+const oeuvreDiv = button.closest('.oeuvre');
+      const synopsisDiv = oeuvreDiv.querySelector('.synopsis');
+
+      // Fermer tous les synopsis ouverts
+      document.querySelectorAll('.oeuvre .synopsis').forEach(div => {
+        if (div !== synopsisDiv) {
+          div.style.display = 'none';
+          const btn = div.closest('.oeuvre').querySelector('.btn');
+          if (btn) btn.textContent = 'Voir plus';
+        }
+      });
+
+      // Toggle le synopsis pour cet oeuvre
+      if (synopsisDiv.style.display === 'block') {
+        synopsisDiv.style.display = 'none';
+        button.textContent = 'Voir plus';
+      } else {
+        synopsisDiv.style.display = 'block';
+        button.textContent = 'Fermer';
+      }
+    }
+  </script>
+
+</body>
+</html>
+.
